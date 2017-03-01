@@ -84,25 +84,25 @@
                 let tempSegmentCosts = [];
                 const changePoints = [];
                 // calculates cost of whole data Array
-                const allCost = calcLinRegCost(dt);
+                const allCost = calcLinRegCost(arr);
                 // Initialize bounds of segments with bounds of whole array
-                const bounds = [0, dt.length];
+                const bounds = [0, arr.length];
                 // Initialize costs of segments with cost of entire segment
                 let segmentCosts = [allCost];
                 // tries to add ChangePoint up to maxCount times
                 for (let times = 0; times < settings.maxCount; times++) {
                     // iterates through all possible changepoint locations and checks if it lowers
                     // the overall segment costs
-                    for (let i = 0; i < dt.length - 1; i++) {
+                    for (let i = 0; i < arr.length - 1; i++) {
                         // checks if datapoint is already a CP and ignores calculation for it if it is.
-                        if (tempCP === dt[i].$year) {
+                        if (tempCP === arr[i].$year) {
                             continue;
                         }
                         // calculate bounds of the segment, the current elements is in
                         const tempBounds = calcSegmentBounds(bounds, i);
                         // calculate the new segment costs of the splitted segment the element is in
-                        const seg1 = calcLinRegCost(dt.slice(tempBounds[0], i + 1));
-                        const seg2 = calcLinRegCost(dt.slice(i + 1, tempBounds[1]));
+                        const seg1 = calcLinRegCost(arr.slice(tempBounds[0], i + 1));
+                        const seg2 = calcLinRegCost(arr.slice(i + 1, tempBounds[1]));
                         // copies old segment costs to a new array
                         const newSegmentCosts = segmentCosts.slice(0, segmentCosts.length);
                         // calculates the place the new segment cost need to be inserted
@@ -117,7 +117,7 @@
                         if (newRed > tempReduction) {
                             tempReduction = newRed;
                             temp = i;
-                            tempCP = dt[i].$year;
+                            tempCP = arr[i].$year;
                             tempSegmentCosts = newSegmentCosts;
                         }
                     }
