@@ -1,4 +1,4 @@
-(function (window) {
+(function () {
     'use strict';
     function Analyzer() {
         var changepointsAnalyzer = {};
@@ -150,8 +150,4 @@
 
         return changepointsAnalyzer;
     }
-
-    if (typeof (window.ChangepointsAnalyzer) === 'undefined') {
-        window.ChangepointsAnalyzer = Analyzer();
-    }
-}(window));
+}());
