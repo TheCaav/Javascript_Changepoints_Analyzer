@@ -79,9 +79,9 @@
             let result = 0;
             for (let i = 0; i < arr.length; i++) {
                 if (settings.useSquared) {
-                    result += (line[i].y - dt[i].y) * (line[i].y - dt[i].y);
+                    result += (line[i].y - arr[i].y) * (line[i].y - arr[i].y);
                 } else {
-                    result += Math.abs(line[i].y - dt[i].y);
+                    result += Math.abs(line[i].y - arr[i].y);
                 }
             }
             return result;
