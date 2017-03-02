@@ -1,0 +1,18 @@
+{
+  "name": "js-changepoints-analyzer",
+  "version": "0.0.1",
+  "description": "Javascript implementation to find changepoints in timeseries",
+  "main": "ChangepointsAnalyzer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.scc.kit.edu/uuead/Javascript_Changepoints_Analyzer.git"
+  },
+  "keywords": [
+    "changepoints"
+  ],
+  "author": "Calvin Urankar",
+  "license": "MIT"
+}
