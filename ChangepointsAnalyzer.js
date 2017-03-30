@@ -24,6 +24,7 @@
       }
     }
     // functions needed
+    // sum up costs saved in array arr
     calcCost = function (arr) {
       let res = 0;
      for (const item of arr) {
@@ -32,6 +33,7 @@
       return res;
     };
 
+    // calc place to put new segment costs in
     calcPlace = function (arr, index) {
       for (let i = 0; i < arr.length; i++) {
         if (index < arr[i]) {
@@ -40,6 +42,7 @@
       }
     };
 
+    // calc bounds of segment
     calcSegmentBounds = function (arr, place) {
       for (let i = 0; i < arr.length; i++) {
         if (place < arr[i]) {
@@ -48,6 +51,7 @@
       }
     };
 
+    // sums up the distances from linear Regression
     calcLinRegCost = function (arr) {
       if (arr.length === 1) {
         return 0;
@@ -91,6 +95,7 @@
       return result;
     };
 
+    // calculates the segments and changepoints
     calcSegments = function (arr) {
       // initialize working data
       let temp = -1;
