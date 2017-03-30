@@ -43,7 +43,7 @@
     calcSegmentBounds = function (arr, place) {
       for (let i = 0; i < arr.length; i++) {
         if (place < arr[i]) {
-          return [arr[i - 1], arr[i]];
+          return arr[i - 1] == -1 ? [0, arr[i]] : [arr[i - 1] + 1, arr[i] + 1];
         }
       }
     };
@@ -101,7 +101,7 @@
       // calculates cost of whole data Array
       const allCost = calcLinRegCost(arr);
       // Initialize bounds of segments with bounds of whole array
-      const bounds = [0, arr.length];
+      const bounds = [-1, arr.length - 1];
       // Initialize costs of segments with cost of entire segment
       let segmentCosts = [allCost];
       // tries to add ChangePoint up to maxCount times
